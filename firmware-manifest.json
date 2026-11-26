@@ -1,12 +1,12 @@
 {
   "manifestVersion": 2,
-  "version": "0.18.9",
+  "version": "0.18.11",
   "hardware": "REV0.1",
   "protocol": 6,
   "sourceProtocolMin": 5,
   "sourceProtocolMax": 6,
-  "size": 1209680,
-  "sha256": "01E7BEFFC875C79A1240A2714387BC312DD9D1AF9639E331F15C829E617B775D",
-  "url": "https://github.com/LordofRobots/CRx_Link_Releases/releases/download/v0.18.9/Battle-Core-0.18.9.bin",
-  "notes": "Engineering release: LiHV and Lead-acid battery profiles, readable cell selector, direct saved-Core connections and discovery recovery. S1/S2 Maximum Command is Expert-only; Basic stages 100%. Install app 1.49 first. Protocol-5 update-only and secure protocol-6 upgrades supported. Physical ESC timing, powered idle acceptance, radio-wide reconnect soaks, power-loss rollback and production-signing qualification remain open."
+  "size": 1209792,
+  "sha256": "5AAD6B9C86B72E470C3715058F888685EF6B241C7CC5CC7F8214F5DC0AD564E2",
+  "url": "https://github.com/LordofRobots/CRx_Link_Releases/releases/download/v0.18.11/Battle-Core-0.18.11.bin",
+  "notes": "Engineering release: mode-only ESC Sync with schema-15 migration; authorized two-second zero-throttle ESC startup; Basic draft deadband/haptic resets and safe-state Setup saves; saturated dashboard colors and standard information icons. Install app 1.56 first. Older firmware cannot preserve schema-15 settings on downgrade. Powered ESC/motor, electrical timing, radio-wide soak, power-loss rollback and production-signing qualification remain open. Latest vector-icon Pixel check is pending."
 }

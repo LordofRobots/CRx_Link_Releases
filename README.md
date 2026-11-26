@@ -5,11 +5,11 @@ repository contains installation information and versioned engineering assets.
 
 ## Current engineering release
 
-**Battle Core 0.18.9 / CRx Link 1.49 (Android version code 50)**
+**Battle Core 0.18.11 / CRx Link 1.56 (Android version code 57)**
 
 - Battle Core REV0.1, classic ESP32 / 4 MB flash.
-- BLE protocol 6; configuration schema 14.
-- [Download v0.18.9](https://github.com/LordofRobots/CRx_Link_Releases/releases/tag/v0.18.9)
+- BLE protocol 6; configuration schema 15.
+- [Download v0.18.11](https://github.com/LordofRobots/CRx_Link_Releases/releases/tag/v0.18.11)
   or browse [all releases](https://github.com/LordofRobots/CRx_Link_Releases/releases).
 
 Install the companion APK before updating the Core. This is an engineering
@@ -17,7 +17,7 @@ release; the qualification limits below remain open.
 
 ## Install or update
 
-1. Install `LoR-CRx-Link-1.49.apk` on the Android phone as an update.
+1. Install `LoR-CRx-Link-1.56.apk` on the Android phone as an update.
 2. Connect to the paired Core, keep it disarmed and disconnect the gamepad.
 3. Accept the firmware offer, or use Firmware / Update on Robot or Check
    Firmware Update in Expert Setup.
@@ -28,25 +28,34 @@ Ordinary OTA preserves supported settings, app ownership and controller pairing.
 Offers require matching hardware, compatible source protocol and a newer
 firmware version. Existing schema-13 S3/S4 idle assignments migrate unchanged;
 S1/S2 idle starts disabled. Older configurations start all idle disabled.
+Export a setup profile before upgrading. Older firmware cannot read schema 15
+and is not a configuration-preserving downgrade. Review configuration before
+reconnecting actuator power after a downgrade or restore.
 
-For blank/erased Cores, use `Battle-Core-0.18.9-USB-Install.zip` and the included
+For blank/erased Cores, use `Battle-Core-0.18.11-USB-Install.zip` and the included
 `USB_INSTALL.md`. Its full 4 MB image is written at 0x0 and deliberately destroys
 settings, ownership, controller bonds, storage and rollback images. It is not
 the OTA application BIN.
 
-## New in 0.18.9 / app 1.49
+## New in 0.18.11 / app 1.56
 
-- **Battery:** added LiHV and Lead-acid; the selected cell count remains visible.
-  A typical 6 V lead-acid battery is 3S and a 12 V battery is 6S. These profiles
-  affect monitoring, not charger settings or the ESC cutoff. New chemistry
-  saves require their Core 0.18.9 capabilities. Before downgrading, save a
-  profile supported by the older software.
-- **Connection:** a 15-second recent-advertisement window, direct connections,
-  Try connect for grey saved Cores, separate View saved, Rescan and automatic
-  scan-error/cooldown recovery. Missing adverts cannot prove a Core is off.
-- **Basic:** S1/S2 Maximum Command is Expert-only; Basic stages both at 100%.
-  Visible drive/turn/output limits are preserved. Save while disarmed applies
-  the draft; switching views alone does not write the robot.
+- **ESC Sync:** learns Forward only/Reversible mode without copying calibration.
+  Schema 12-14 synced ESC outputs migrate to standard 1000/1500/2000 us PWM;
+  manual/servo calibration, mappings, limits and idle assignments are preserved.
+- **ESC startup:** two seconds of authorized zero throttle before ESC throttle
+  or idle. Early idle waits; Stop cancels it; disarm clears it and holds pins LOW.
+  The dashboard shows ESC STARTUP. This does not measure ESC readiness.
+- **Basic:** standard gamepad deadband and disabled impact haptics join the
+  existing behavior defaults. Changes stay in the draft until Save to Core.
+  Returning to Expert retains the Basic draft; disarm clears active idle.
+- **Setup:** safe FAILSAFE_LATCHED saves match Core policy; armed, qualifying,
+  unknown and maintenance states remain blocked.
+- **UI:** saturated red/white Armed and green/black Disarmed state cards;
+  standard compact information icons with unchanged explanation dialogs.
+
+The latest vector icon's Pixel visual check is pending after USB disconnection.
+Powered S3 motor response remains unverified; isolated-power controller checks
+confirmed its idle/Stop commands and startup zero override.
 
 ## System features
 
@@ -87,7 +96,7 @@ Verify the actual ESC's signal-loss shutdown. A requested disarmed maintenance
 session may temporarily use its selected wire and must return it LOW.
 
 Physical output timing during boot/reset/brownout/controller loss, powered
-acceptance of the new all-output idle feature, the broader ESC/controller matrix,
+acceptance of the new all-output idle feature, the broader ESC/controller matrix and startup timing,
 power-loss rollback, radio-wide reconnect soaks and production signing remain open. CRSF hardware and
 bidirectional DShot electrical behavior are not fully qualified. Unsaved Setup
 drafts can be discarded when the form is rebuilt; save deliberately or retain
@@ -102,7 +111,7 @@ without it require serial updating.
 Release assets include APK, OTA BIN, clean USB ZIP, instructions, manifest,
 checksums, two independent clean-build records and `reproducibility.json`.
 The APK, OTA image, USB ZIP and instructions are compared byte-for-byte before
-publication. Each build runs 160 Android tests in 31 suites, assembly/lint,
+publication. Each build runs 164 Android tests in 32 suites, assembly/lint,
 generated schemas, native control/configuration/output-safety/ESC-session checks,
 fresh ESP-IDF compilation and the bounded AM32 callback-stack check.
 
