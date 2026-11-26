@@ -1,12 +1,12 @@
 {
   "manifestVersion": 2,
-  "version": "0.18.5",
+  "version": "0.18.8",
   "hardware": "REV0.1",
   "protocol": 6,
   "sourceProtocolMin": 5,
   "sourceProtocolMax": 6,
-  "size": 1205232,
-  "sha256": "1DA4F03302C0C2D8D3A2B4A991A62BF1EFB593CAF3B196CEFE93DC341D6EF29B",
-  "url": "https://github.com/LordofRobots/CRx_Link_Releases/releases/download/v0.18.5/Battle-Core-0.18.5.bin",
-  "notes": "Engineering release: S1-S4 held LOW while disarmed; Basic/Expert setup, editable sliders and keyboard fixes; guarded BLHeli_S configuration and command-only BLHeli_32 beta; faster verified Bluetooth OTA with live time estimates. Install app 1.39 first. Supports protocol-5 migration and secure protocol-6 upgrades. Electrical, interrupted-power rollback and production-signing qualification remain incomplete."
+  "size": 1209520,
+  "sha256": "2703112DEDAFD9B285514690BA0C5ABA1ECFA7A78DAA5FD9A5B75FC6F3885BFB",
+  "url": "https://github.com/LordofRobots/CRx_Link_Releases/releases/download/v0.18.8/Battle-Core-0.18.8.bin",
+  "notes": "Engineering release: common settings and optional gamepad idle/Stop controls for every available S output; predictable Basic defaults; verified AM32/BLHeli_S throttle Sync; compact UI, contextual help and visual board attitude. Install app 1.48 first. Protocol-5 update-only and secure protocol-6 upgrades supported. Physical ESC timing, powered idle acceptance, interrupted-power rollback and production-signing qualification remain open."
 }
