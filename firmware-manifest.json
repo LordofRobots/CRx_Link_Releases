@@ -1,12 +1,12 @@
 {
   "manifestVersion": 2,
-  "version": "0.18.11",
+  "version": "0.18.15",
   "hardware": "REV0.1",
   "protocol": 6,
   "sourceProtocolMin": 5,
   "sourceProtocolMax": 6,
-  "size": 1209792,
-  "sha256": "5AAD6B9C86B72E470C3715058F888685EF6B241C7CC5CC7F8214F5DC0AD564E2",
-  "url": "https://github.com/LordofRobots/CRx_Link_Releases/releases/download/v0.18.11/Battle-Core-0.18.11.bin",
-  "notes": "Engineering release: mode-only ESC Sync with schema-15 migration; authorized two-second zero-throttle ESC startup; Basic draft deadband/haptic resets and safe-state Setup saves; saturated dashboard colors and standard information icons. Install app 1.56 first. Older firmware cannot preserve schema-15 settings on downgrade. Powered ESC/motor, electrical timing, radio-wide soak, power-loss rollback and production-signing qualification remain open. Latest vector-icon Pixel check is pending."
+  "size": 1209520,
+  "sha256": "60D5E7DB71BA26F75C29F2169A329261EE538C3C6C96B777362DEDA3C3BEF58A",
+  "url": "https://github.com/LordofRobots/CRx_Link_Releases/releases/download/v0.18.15/Battle-Core-0.18.15.bin",
+  "notes": "CRSF/ELRS input with shared safety and mode switching; channel-level safety diagnostics; ESC setup guidance; watchdog, recording and Setup draft reliability. Install app 1.60 first. CRSF uses UART0 exclusively; isolate receiver TX for USB flashing. Live radio/motor/electrical, power-loss rollback and signing qualification remain open."
 }
